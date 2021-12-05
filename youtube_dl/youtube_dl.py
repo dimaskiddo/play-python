@@ -39,26 +39,32 @@ def main(argv):
   print("Title        :", video_title)
   print("Downloading  :")
 
-  ## Save Video Stream in MP4 format
-  print("- Video File...")
+  ## Download Video Stream with filter in MP4 format file
+  print("- Downloading '" + video_title + ".mp4'")
   video_filter = video_meta.streams \
                 .filter(progressive=True, file_extension='mp4') \
                 .order_by('resolution').desc().first()
 
   video_filter.download(filename=video_title+".mp4")
 
-  ## Save Video Caption in SRT format
-  ##   Still Have a BUG
-  # print("- Video Caption...")
-  # output_caption = video_title + '.srt'
+  ## Download Video Caption in SRT format file
+  ##   Still Have a Bug from PyTube Library
+  # print("- Downloading '" + video_title + ".srt'")
   # video_caption = video_meta.captions['en']
 
-  # video_caption.download(title=output_caption, srt=True)
+  # video_caption.download(title=video_title+".srt", srt=True)
 
+  ## Print Task Completed and Exit
+  completed()
+
+## Function to Print Task Completed and Exit
+def completed():
   ## Exit With Status Code 0
+  print("")
+  print("Task Completed")
   sys.exit(0)
 
-## Print Help and Exit Function
+## Function to Print Help and Exit
 def help():
   ## Print Helm Message
   print(sys.argv[0], "-u http://youtube.com/watch?v=2lAe1cqCOXo")

@@ -51,7 +51,7 @@ def main(argv):
   web_request = urllib.request.Request(url, None, web_header)
 
   ## Open Web With Request GET Method
-  print("Openning URL from:", url)
+  print("Openning URL from  :", url)
   web_page = urllib.request.urlopen(web_request)
 
   ## Parse Web Content and Decode it to HTML UTF-8
@@ -61,11 +61,18 @@ def main(argv):
   web_page.close()
 
   ## Save Web Content HTML to Output File
-  print("Saving Output to:", output)
+  print("Saving Output to   :", output)
   converter.add_html_to_document(web_content, document)
   document.save(output)
 
+  ## Print Task Completed and Exit
+  completed()
+
+## Function to Print Task Completed and Exit
+def completed():
   ## Exit With Status Code 0
+  print("")
+  print("Task Completed")
   sys.exit(0)
 
 ## Print Help and Exit Function
