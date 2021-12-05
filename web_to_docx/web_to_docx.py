@@ -21,7 +21,7 @@ def main(argv):
   ## Try to Parse Argments
   try:
     ## Parse Arguments
-    opts, args = getopt.getopt(argv,"u:o:",["url=","output="])
+    opts, _ = getopt.getopt(argv,"u:o:",["url=","output="])
   except getopt.GetoptError:
     ## If There is an Error While Parsing Then
     ##   Print Help and Exit
